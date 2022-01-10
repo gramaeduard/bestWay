@@ -20,7 +20,7 @@ public class TesteeDb {
 	 //User userdb=uc.getuserbyid("1");
 	// String test =uc.getuserbyid("1").getUserName();
 	 String str1 = "PETRACHE Poenaruu";
-	 String str2 = "PETRACHE Poenaruu";
+	 String str2 = uc.getuserbyid("1").getUserName();
 	 assertEquals("Mesaj de validare",0,str1.compareTo(str2)); 
 	 }
 
