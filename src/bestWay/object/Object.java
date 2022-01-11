@@ -6,6 +6,16 @@ public class Object {
 	protected String Status;
 	protected String Image;
 	protected float Price;
+	protected String AboutObject;
+	
+	public String getAboutObject() {
+		return AboutObject;
+	}
+	public void setAboutObject(String aboutObject) {
+		AboutObject = aboutObject;
+	}
+	
+	
 	public String getImage() {
 		return Image;
 	}

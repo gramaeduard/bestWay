@@ -2,6 +2,8 @@ package bestWay.object;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import bestWay.DbManager.DbManager;
 import bestWay.user.User;
@@ -32,5 +34,35 @@ public void insertObject(String objectname, String status, int userid, String im
 				}	
 							
 			}
+
+
+public List <Object> getallObjects() {
+
+	String string = "forsale";
+	query = "select * from object where status='"+string+"'";
+	List<Object> objectlist = new ArrayList<Object>();
+	try{
+		result = dbm.getResult(query);
+		Object object = new Object();
+		
+		while(result.next()) {
+	
+		    object.setObjectId(result.getInt(1));
+		    object.setObjectName(result.getString(2));
+			object.setStatus(result.getString(3));
+			object.setUserId(result.getInt(4));
+			object.setImage(result.getString(5));
+			object.setPrice(result.getFloat(6));
+			object.setAboutObject(result.getString(7));
+			
+			objectlist.add(object);
+		}
+			return objectlist;
+	}	catch (Exception e) {
+		e.printStackTrace();
+		return null;
+	}	
+		}
+
 
 }
