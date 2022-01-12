@@ -43,10 +43,10 @@ public List <Object> getallObjects() {
 	List<Object> objectlist = new ArrayList<Object>();
 	try{
 		result = dbm.getResult(query);
-		Object object = new Object();
 		
+		objectlist.clear();
 		while(result.next()) {
-	
+			Object object = new Object();
 		    object.setObjectId(result.getInt(1));
 		    object.setObjectName(result.getString(2));
 			object.setStatus(result.getString(3));
