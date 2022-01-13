@@ -56,11 +56,13 @@ User user = new User();
 				user.setPassword(result.getString(3));
 				
 			}
-		
+		System.out.println("este valid");
 		}catch (Exception e) {
 			e.printStackTrace();
 			}
-		if( user.getPassword()==Password) {
+		String str1 =user.getPassword();
+		System.out.println(Password);
+		if(0 == str1.compareTo(Password)) {
 			return true;
 	}else return false;
 					

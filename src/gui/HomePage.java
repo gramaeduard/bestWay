@@ -8,6 +8,7 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
@@ -50,6 +51,19 @@ public class HomePage extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	/*public void show() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					HomePage frame = new HomePage();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}*/
+	
 	public HomePage() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 782, 382);
@@ -59,7 +73,7 @@ public class HomePage extends JFrame {
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 		//contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.X_AXIS));
 		
-	
+		
 		
 		/*Panel panel_1 = new Panel();
 		panel_1.setBounds(10, 10, 746, 71);

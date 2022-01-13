@@ -13,15 +13,16 @@ import javax.swing.JTextField;
 
 import bestWay.user.UserController;
 
-public class Authentication implements ActionListener{
+public class Authentication extends JFrame{
 	
 	private static JLabel userLabel;
 	private static JTextField userText;
 	private static JLabel passwordLabel;
 	private static JPasswordField passwordText;
 	private static JButton button;
+	//private static  
 	
-	public static void main(String[] args) {
+	public Authentication() {
 		
 		JPanel panel = new JPanel();
 		JFrame frame = new JFrame();
@@ -49,14 +50,41 @@ public class Authentication implements ActionListener{
 		
 		button = new JButton("Login");
 		button.setBounds(10, 80, 80, 25);
-		button.addActionListener(new Authentication());
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				UserController cn = new UserController();
+				String username = userText.getText();
+				String password = passwordText.getText();
+		          if(cn.isvalid(username, password)) {
+		        	  
+		        	  //dispose();
+		        	  //frame.
+		        	  HomePage hpage = new HomePage();
+		        	  hpage.setVisible(true);
+		        	  frame.setVisible(false); }
+				
+			}});
 		panel.add(button);
 		
 		frame.setVisible(true);
 	}
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Authentication frame = new Authentication();
+					//frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
+	/*@Override
+	/*public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		UserController cn = new UserController();
 		String username = userText.getText();
@@ -66,7 +94,8 @@ public class Authentication implements ActionListener{
         	  //dispose();
         	  //frame.
         	  HomePage hpage = new HomePage();
-        	  hpage.show();
+        	  hpage.setVisible(true);;
+        	  frame.setVisible(false);
           }
-	}
+	}-*/
 }

@@ -22,6 +22,7 @@ public class teste {
 		DbManager dbm = new DbManager()*/;
 		UserController uc = new UserController();
 		ObjectController oc = new ObjectController();
+		System.out.println(uc.isvalid("PETRACHE Poenaruu", "PETRI12345"));
 		/*try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bestwaydb","root","MAL18091998");
@@ -55,7 +56,7 @@ public class teste {
 				} catch (SQLException e) {
 				e.printStackTrace();}
 		*/
-		List<Object> objectlist = oc.getallObjects();
+	/*	List<Object> objectlist = oc.getallObjects();
 		
 		for(Object objectaux : objectlist){
 			 
