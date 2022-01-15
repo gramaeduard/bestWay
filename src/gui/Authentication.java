@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import bestWay.user.UserController;
 
@@ -20,6 +21,7 @@ public class Authentication extends JFrame{
 	private static JLabel passwordLabel;
 	private static JPasswordField passwordText;
 	private static JButton button;
+	private static JButton addnewuser;
 	//private static  
 	
 	public Authentication() {
@@ -56,16 +58,55 @@ public class Authentication extends JFrame{
 				UserController cn = new UserController();
 				String username = userText.getText();
 				String password = passwordText.getText();
+				
 		          if(cn.isvalid(username, password)) {
 		        	  
 		        	  //dispose();
 		        	  //frame.
 		        	  HomePage hpage = new HomePage();
 		        	  hpage.setVisible(true);
-		        	  frame.setVisible(false); }
+		        	  frame.setVisible(false);
+		        	  }
+		              else{
+		        	  JFrame  adduserpage = new JFrame();
+		        	  
+						 adduserpage.setBounds(100, 100, 285, 109);
+						//JPanel contentPane = new JPanel();
+						//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+						
+						/*contentPane = new JPanel();
+						contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+						contentPane.setLayout(new BorderLayout(0, 0));
+						setContentPane(contentPane);
+						*/
+						JPanel panel = new JPanel();
+						//contentPane.add(panel, BorderLayout.CENTER);
+						
+						JLabel lblNewLabel = new JLabel("User or Password is incorect!");
+						lblNewLabel.setVerticalAlignment(SwingConstants.BOTTOM);
+						panel.add(lblNewLabel);
+						
+						adduserpage.add(panel);
+						adduserpage.setVisible(true);
+		          }
 				
 			}});
+		
 		panel.add(button);
+		
+		
+		addnewuser = new JButton("New User");
+		addnewuser.setBounds(100, 80, 125, 25);
+		addnewuser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+		        	  AddUser adduserpage = new AddUser();
+		        	  adduserpage.setVisible(true);
+		        	  //frame.setVisible(false); }
+				
+			}});
+		panel.add(addnewuser);
 		
 		frame.setVisible(true);
 	}
