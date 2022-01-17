@@ -41,6 +41,7 @@ public class HomePage extends JFrame {
 				try {
 					HomePage frame = new HomePage();
 					frame.setVisible(true);
+					frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -65,7 +66,7 @@ public class HomePage extends JFrame {
 	}*/
 	
 	public HomePage() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 782, 382);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -103,6 +104,31 @@ public class HomePage extends JFrame {
 		
 		//List<JPanel> panelistgeter = new ArrayList<JPanel>();
 		
+		JPanel panel1 = new JPanel();
+		panel1.setBounds(10, 11, 414, 62);
+		getContentPane().add(panel1);
+		panel1.setLayout(null);
+		
+		JButton addobjectbtn = new JButton("Sell Object");
+		addobjectbtn.setBounds(10, 11, 108, 40);
+		addobjectbtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				AddObject frameaddobject = new AddObject();
+				frameaddobject.setVisible(true);
+				frameaddobject.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			}});
+		
+		panel1.add(addobjectbtn);
+		
+		JButton btnNewButton_1 = new JButton("Object List");
+		btnNewButton_1.setBounds(151, 11, 124, 40);
+		panel1.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("LogOut");
+		btnNewButton_2.setBounds(303, 11, 108, 40);
+		panel1.add(btnNewButton_2);
+		contentPane.add(panel1);
 		
 		ObjectController oc = new ObjectController();
 		List<Object> objectlist = oc.getallObjects();
@@ -137,6 +163,11 @@ public class HomePage extends JFrame {
 			addbtn.setBounds(554, 24, 89, 23);
 			addbtn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					
+					BuyPage frame= new BuyPage(
+							object.getImage(),object.getObjectName(),object.getAboutObject(),object.getPrice());
+					        frame.setVisible(true);
+					        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				}});
 			panel.add(addbtn);
 			

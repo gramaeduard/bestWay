@@ -62,6 +62,35 @@ public List <Object> getallObjects() {
 		e.printStackTrace();
 		return null;
 	}	
+	
+}
+
+	public Object getobjectbyid(String string) {
+
+		
+		query = "select * from object where idobject ='"+string+"'";
+		List<Object> objectlist = new ArrayList<Object>();
+		try{
+			result = dbm.getResult(query);
+			
+			Object object = new Object();
+			while(result.next()) {
+			
+			    object.setObjectId(result.getInt(1));
+			    object.setObjectName(result.getString(2));
+				object.setStatus(result.getString(3));
+				object.setUserId(result.getInt(4));
+				object.setImage(result.getString(5));
+				object.setPrice(result.getFloat(6));
+				object.setAboutObject(result.getString(7));
+				
+			
+			}
+				return object;
+		}	catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}	
 		}
 
 

@@ -88,6 +88,7 @@ public class Authentication extends JFrame{
 						
 						adduserpage.add(panel);
 						adduserpage.setVisible(true);
+						adduserpage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		          }
 				
 			}});
@@ -103,6 +104,7 @@ public class Authentication extends JFrame{
 				
 		        	  AddUser adduserpage = new AddUser();
 		        	  adduserpage.setVisible(true);
+		        	  adduserpage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		        	  //frame.setVisible(false); }
 				
 			}});

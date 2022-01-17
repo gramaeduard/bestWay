@@ -64,6 +64,7 @@ User user = new User();
 			}
 		String str1 =user.getPassword();
 		System.out.println(Password);
+		
 		if(0 == str1.compareTo(Password)) {
 			return true;
 	}else return false;
